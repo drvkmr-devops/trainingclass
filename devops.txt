@@ -1,0 +1,209 @@
+Git Code for make directory
+	mkdir <file name>
+
+Open directory
+	cd <file name>
+
+to initialize directory
+	git init
+
+to know status
+	git status
+
+to add files in to directory 
+	git add <file name> <fine name> <n>
+	git add .
+
+to save files in to directory
+	git  commit -m <"Custom Message">
+
+sync cloud repository
+	git remote add origin <"">
+
+push files / changes in to cloud repository
+	git push origin 
+
+pull files into active folder from other folder
+	git pull origin master
+
+create branch
+	git branch <branch name>
+
+switch from one branchto another branch
+	git checkout <branch name to which you wnat to switch>
+
+to see log details
+	git log
+
+to see data inside the file 
+	get cat <file name>
+
+to save new files / modified files (temporary files) in to active branch and not reflecting in other branches 
+	get stash
+
+to go back to (temporary files) stash 
+	get stash pop
+
+rever to previous version or commit
+	git revert <commit id from log>
+
+to check difference between two files/commits
+	git diff <file name / log id> <file name / log id>
+
+to check latest commit with update data 
+	git diff HEAD .
+
+
+how to install docker in server from putty/console
+
+to update server
+	sudo apt-get update
+
+to install docker 
+	sudo apt-get install docker.io
+
+to check docker version
+	docker --version
+to pull dockerr image
+	sudo docker pull ubuntu
+
+to run docker image
+	sudo docker run -it -d <docker name>
+
+to run docker image with specified port
+	docker run - it -p 84:80 -d <docker name>
+
+to see running docker status
+	sudo docker ps
+
+to see all docker status
+	sudo docker ps -a
+
+to get in to docker 
+	sudo docker exec -it <docker id> bash
+
+to come out of docker
+	exit
+
+to stop running docker 
+	sudo docker stop <docker id>
+
+to kill the docker
+	sudo docker kill <docker id>
+
+to delete docker from server 
+	sudo docker rm <docker id>
+
+
+to know images in the docker 
+	sudo docker images
+
+to remove images from docker
+	sudo docker rmi <image id>
+
+to delete the docker container when running
+	sudo docker rm -f <docker id>
+
+to save changes to docker container out side docker
+	sudo docker commit <dockerr id> <new docker image name>
+
+
+to login dockerr hub
+	sudo docker login
+
+to push images/docker in to docker hub
+	sudo docker push <docker immage>
+	
+
+creating docker file with syntex
+FROM ubuntu
+RUN apt-get update
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt-get -y install apache2
+ADD . /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+ENV Name DockerLearn
+
+
+to build docker file
+	docker build . -t <new docker name>
+
+how to remove sudo commond
+	sudo usermod -aG docker &USER
+
+to create docker volume
+	docker volume create <volume name>
+
+
+to mount or link the volume with any images 
+	docker run -it --mount source=<volume name>,target=<folder path> -d <image name>
+Example1: docker run -it --mount source=apache,target=/app -d ubuntu
+Example2: docker run -it --mount source=apache,target=/var/www/html -d new_dockerfile
+
+
+Note: files which ever creating in dockers that will be available in other dockers even if we delete the dockers where we create the files initially. (only if volumes are mounted to the docker)
+
+example : 
+	Volumes: 
+		Test
+		Apache
+
+Docker1 and docker2 is mounted with test 
+
+docker3 and docker4 is mounted with apache 
+
+what ever files created in docker1 and docker2 will be available each docker and also will be available in new docker if we link with test volume
+
+but same files will not be available in docker3 and docker4 or (linked with apache volume)   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
